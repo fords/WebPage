@@ -1,3 +1,45 @@
-.logo-img{
-  width:300px;
+.logo-img {
+  width: 300px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+.name {
+  /* width: 100%; */
+  margin-top: 30px;
+}
+
+.center-img {
+  margin: 30px;
+  max-width: 100%;
+  height: auto;
+}
+
+.dev-header{
+  margin-left:30px;
+}
+
+.space-header{
+  text-align: center;
+}
+
+.dev-img {
+  width: 200px;
+  margin-left:30px;
+  margin-top: 30px;
+  /* margin: 30px; */
+}
+
+.space-img {
+  width: 330px;
+  margin-top: 30px;
+  /* margin-left: 20px; */
+  /* margin: 50px; */
+}
+
+.robot-img {
+  width: 160px;
+  margin-top: 30px;
+  margin-right: 50px;
 }
