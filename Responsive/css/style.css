@@ -1,24 +1,30 @@
-.logo-img {
-  width: 300px;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 30px;
+@media screen and (min-width: 1px) {
+  .logo-img {
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 100%;
+    background-color: orange;
+  }
 }
 
-.name {
-  margin-top: 30px;
-  text-align: center;
+@media screen and (min-width: 768px) {
+  .logo-img {
+    width: 300px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;
+  }
 }
 
 @media screen and (min-width: 1px) {
   .name {
     margin-top: 30px;
     text-align: center;
-    background-color: orange;
+    width: 100%;
   }
 }
 
-@media screen and (min-width: 790px) {
+@media screen and (min-width: 768px) {
   .name {
     margin-top: 30px;
     text-align: right;
@@ -26,33 +32,73 @@
   }
 }
 
-.center-img {
-  margin: 30px;
-  max-width: 100%;
-  height: auto;
+@media screen and (min-width: 1px) {
+  .center-img {
+    margin-left: 10px;
+    margin-top: 30px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .center-img {
+    margin: 30px;
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .dev-header{
-  margin-left:30px;
+  margin-left:8px;
 }
 
 .space-header{
-  text-align: left;
+  margin-left: 8px;
 }
 
-.dev-img {
-  width: 200px;
-  margin-left:30px;
-  margin-top: 30px;
+@media screen and (min-width: 1px) {
+  .dev-img{
+    margin-left: 10px;
+    margin-top: 30px;
+    width: 100%;
+  }
 }
 
-.space-img {
-  width: 330px;
-  margin-top: 30px;
+@media screen and (min-width: 768px) {
+  .dev-img {
+    width: 200px;
+    margin-left: 30px;
+    margin-top: 30px;
+  }
 }
 
-.robot-img {
-  width: 160px;
-  margin-top: 30px;
-  margin-right: 50px;
+@media screen and (min-width: 1px) {
+  .space-img {
+    margin-left: 10px;
+    margin-top: 30px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .space-img {
+    width: 330px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 1px) {
+  .robot-img {
+    margin-left: 10px;
+    margin-top: 30px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .robot-img {
+    width: 160px;
+    margin-top: 30px;
+    margin-right: 50px;
+  }
 }
