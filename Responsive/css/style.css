@@ -6,8 +6,24 @@
 }
 
 .name {
-  /* width: 100%; */
   margin-top: 30px;
+  text-align: center;
+}
+
+@media screen and (min-width: 1px) {
+  .name {
+    margin-top: 30px;
+    text-align: center;
+    background-color: orange;
+  }
+}
+
+@media screen and (min-width: 790px) {
+  .name {
+    margin-top: 30px;
+    text-align: right;
+    background-color: green;
+  }
 }
 
 .center-img {
@@ -21,21 +37,18 @@
 }
 
 .space-header{
-  text-align: center;
+  text-align: left;
 }
 
 .dev-img {
   width: 200px;
   margin-left:30px;
   margin-top: 30px;
-  /* margin: 30px; */
 }
 
 .space-img {
   width: 330px;
   margin-top: 30px;
-  /* margin-left: 20px; */
-  /* margin: 50px; */
 }
 
 .robot-img {
