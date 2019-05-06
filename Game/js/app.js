@@ -20,7 +20,8 @@ function startGame(card) {
     $(card).addClass('show open');
     if(matchTwoCards.length > 0 ) {
       matchTwoCards.push(card);
-      setTimeout(function() { isMatched(matchTwoCards);}, 150);
+      isMatched(matchTwoCards);
+      // setTimeout(function() { isMatched(matchTwoCards);}, 150);
     }else {
       matchTwoCards.push(card);
     }
@@ -34,10 +35,10 @@ function startGame(card) {
 }
 
 function clicksCount() {
-  clicks++;
-  if(clicks == 1) {
-    setTImer = setInterval(startTime, 1000);
-  }
+    clicks++;
+    if(clicks == 1) {
+      setTImer = setInterval(startTime, 1000);
+    }
 }
 
 
@@ -48,13 +49,13 @@ function movesCount() {
 
 function starsCalculate(clicks) {
     var stars = document.querySelectorAll('.fa-star');
-    if(clicks <= 30){
+    if(clicks >= 32 && clicks < 36){
         $(stars[2]).css('color', '#fbf0ea');
     }
-    else if(clicks <= 36){
+    else if(clicks >= 36 ){
         $(stars[1]).css('color', '#fbf0ea');
     }
-    else if(clicks <= 46){
+    else if(clicks >= 46){
         $(stars[0]).css('color', '#fbf0ea');
     }
 }
@@ -111,8 +112,7 @@ function removeIncorrect(matchTwoCards) {
 function isMatched(matchTwoCards) {
     flipCard1 = matchTwoCards[0].innerHTML;
     flipCard2 = matchTwoCards[1].innerHTML;
-    let cond1 = $(matchTwoCards[0]).is($(matchTwoCards[1]))
-    if(cond1) {
+    if($(matchTwoCards[0]).is($(matchTwoCards[1]))) {
         matchTwoCards.pop(flipCard2);
         return false;
     } else {
@@ -130,7 +130,7 @@ function matched(matchTwoCards) {
         $(matchTwoCards[i]).addClass('correct');
 
         if($(matchTwoCards[i]).hasClass('match')){
-        cardsFlippedArr.push(matchTwoCards[i]);
+          cardsFlippedArr.push(matchTwoCards[i]);
         }
     }
     if(cardsFlippedArr.length == 16){
@@ -154,8 +154,8 @@ function notMatched(matchTwoCards) {
 function winGame() {
     let winModalId = document.getElementById('win-modal');
     setTimeout(function() {
-    winModalId.style.display = "block";
-  }, 300);
+      winModalId.style.display = "block";
+    }, 300);
     stars = document.querySelectorAll('.fa-star');
     document.getElementById('win-stars').innerHTML =
         "<ul class=\"stars\">" + stars[0].outerHTML + stars[1].outerHTML + stars[2].outerHTML + "</ul>";
@@ -169,31 +169,33 @@ function restart() {
     document.getElementById('timer').innerHTML = "0:00";
     document.querySelector(".moves").innerHTML = '0';
 
-    starts = document.querySelectorAll('.fa-star');
-    for(let i=0; i<starts.length; i++){
-        $(starts[i]).css('color', 'gold');
+    stars = document.querySelectorAll('.fa-star');
+    for(let i = 0; i < stars.length; i++){
+        $(stars[i]).css('color', 'gold');
     }
     clicks = 0;
-    moveCounter = 0;
-    totalSeconds = 0;
-    matchTwoCards.length = [];
+    moves = 0;
+    secondsElapsed = 0;
+    matchTwoCards  = [];
+    cardsFlippedArr = [];
     window.clearInterval(setTimer);
-
+    // $(document).ready(function());
     shuffleInit();
     $(".card").click(function() {
        startGame(this);
     });
-    window.setTimeout(unflip, 2000);
+    window.setTimeout(unflip, 1000);
     $(".open").removeClass("open");
     $(".show").removeClass("show");
     $(".match").removeClass("match");
+
 }
 
 
 function unflip() {
-    domCards = document.querySelectorAll(".card");
-    for(let i = 0; i < domCards.length; i++){
-        $(domCards[i]).removeClass('open show');
+    let cards = document.querySelectorAll(".card");
+    for(let i = 0; i < cards.length; i++){
+        $(cards[i]).removeClass('open show');
     }
 }
 // Convert object to array
