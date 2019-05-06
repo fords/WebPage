@@ -3,9 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>Memory Game</title>
-    <meta name="description" content="">
+    <meta name="description" content="Memory Game">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -22,10 +25,14 @@
         		<li><i class="fa fa-star"></i></li>
         	</ul>
 
-        	<span class="moves">3</span> Moves
+        	<div class="moveMessage" >
+             <span class="moves">0</span> Moves
+           </div>
 
-            <div class="restart">
-        		<i class="fa fa-repeat"></i>
+          <div id="timer">0:00</div>
+
+          <div class="restart">
+        		<a href="javascript:restart()"><i class="fa fa-repeat"></i></a>
         	</div>
         </section>
 
@@ -36,7 +43,7 @@
             <li class="card">
                 <i class="fa fa-paper-plane-o"></i>
             </li>
-            <li class="card match">
+            <li class="card">
                 <i class="fa fa-anchor"></i>
             </li>
             <li class="card">
@@ -45,7 +52,7 @@
             <li class="card">
                 <i class="fa fa-cube"></i>
             </li>
-            <li class="card match">
+            <li class="card">
                 <i class="fa fa-anchor"></i>
             </li>
             <li class="card">
@@ -66,7 +73,7 @@
             <li class="card">
                 <i class="fa fa-bomb"></i>
             </li>
-            <li class="card open show">
+            <li class="card ">
                 <i class="fa fa-bolt"></i>
             </li>
             <li class="card">
@@ -80,6 +87,26 @@
             </li>
         </ul>
     </div>
+
+    <div class="modal" id="win-modal" style="display: none" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">YOU WON !!!</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h3>The star obtained is <span id="win-stars"></span></h3>
+          <p>You completed game in <span id="win-time"></span> seconds and <span id="win-moves"></span> moves.</p>
+          <p>Let's play again</p>
+          <button type="button" class="btn btn-success" id="play" onclick="restart(), hideModal()">Yes</button>
+      <button type="button" class="btn btn-danger" id="back" onclick="hideModal()">No</button>
+        </div>
+    </div>
+  </div>
+</div>
 
     <script src="js/app.js"></script>
 </body>

@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #000000 url('../img/background.jpg'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
@@ -132,6 +132,14 @@ h1 {
     color: black;
 }
 
+
+.moveMessage, #play,  #timer  {
+  color: orange;
+}
+
+.restart{
+  background: #993399;
+}
 
 @keyframes shake {
   10%, 90% {
