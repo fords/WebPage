@@ -21,7 +21,6 @@ function startGame(card) {
     if(matchTwoCards.length > 0 &&  matchTwoCards.length < 2) {
       matchTwoCards.push(card);
       isMatched(matchTwoCards);
-      // setTimeout(function() { isMatched(matchTwoCards);}, 150);
     }else {
       matchTwoCards.push(card);
     }
