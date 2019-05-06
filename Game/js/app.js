@@ -4,7 +4,7 @@ var secondsElapsed = 0;
 var matchTwoCards = [];
 let flipCard1;
 let flipCard2;
-let cardsFlippedArr = [];
+var cardsFlippedArr = [];
 var shuffled;
 var setTimer;
 
@@ -18,10 +18,9 @@ $(document).ready(function() {
 function startGame(card) {
     const cards_Select = document.querySelectorAll('.card');
     $(card).addClass('show open');
-    if(matchTwoCards.length > 0 ) {
+    if(matchTwoCards.length > 0 &&  matchTwoCards.length < 2) {
       matchTwoCards.push(card);
       isMatched(matchTwoCards);
-      // setTimeout(function() { isMatched(matchTwoCards);}, 150);
     }else {
       matchTwoCards.push(card);
     }
@@ -80,6 +79,17 @@ function shuffleInit() {
     var cards = document.querySelectorAll('.card');
     var cardsArray = objToArray(cards);
     shuffled = shuffle(cardsArray);
+
+    const list = document.createElement("ul");
+    for(let i = 0; i < shuffled.length; i++){
+        let li = document.createElement("li");
+        li.innerHTML = shuffled[i];
+        li.classList.add("card");
+        list.appendChild(li);
+    }
+
+    const createGrid =  document.getElementsByClassName("deck")[0].innerHTML = list.innerHTML;
+    return createGrid;
 }
 
 // Shuffle function
@@ -134,7 +144,6 @@ function matched(matchTwoCards) {
         }
     }
     if(cardsFlippedArr.length == 16){
-      // console.log('win');
         winGame();
     }
     movesCount();
@@ -144,9 +153,7 @@ function notMatched(matchTwoCards) {
     for(let i = 0; i < matchTwoCards.length; i++){
         $(matchTwoCards[i]).removeClass('open show', 800, "easeInBack");
         $(matchTwoCards[i]).addClass('incorrect');
-        // console.log('i', i)
     }
-    // console.log('not match')
     movesCount();
 }
 
@@ -168,7 +175,9 @@ function winGame() {
 function restart() {
     document.getElementById('timer').innerHTML = "0:00";
     document.querySelector(".moves").innerHTML = '0';
-
+    $(".open").removeClass("open");
+    $(".show").removeClass("show");
+    $(".match").removeClass("match");
     stars = document.querySelectorAll('.fa-star');
     for(let i = 0; i < stars.length; i++){
         $(stars[i]).css('color', 'gold');
@@ -179,15 +188,12 @@ function restart() {
     matchTwoCards  = [];
     cardsFlippedArr = [];
     window.clearInterval(setTimer);
-    // $(document).ready(function());
     shuffleInit();
     $(".card").click(function() {
        startGame(this);
     });
     window.setTimeout(unflip, 1000);
-    $(".open").removeClass("open");
-    $(".show").removeClass("show");
-    $(".match").removeClass("match");
+
 
 }
 
