@@ -24,7 +24,7 @@ function startGame(card) {
     }else {
       matchTwoCards.push(card);
     }
-    if(matchTwoCards.length == 2) {
+    if(matchTwoCards.length === 2) {
       setTimeout(function(){ removeIncorrect(matchTwoCards);}, 150);
       setTimeout(function(){ removeCorrect(matchTwoCards);}, 150);
       setTimeout(function(){ matchTwoCards = [];}, 270);
@@ -35,7 +35,7 @@ function startGame(card) {
 
 function clicksCount() {
     clicks++;
-    if(clicks == 1) {
+    if(clicks === 1) {
       setTImer = setInterval(startTime, 1000);
     }
 }
@@ -53,9 +53,6 @@ function starsCalculate(clicks) {
     }
     else if(clicks >= 36 ){
         $(stars[1]).css('color', '#fbf0ea');
-    }
-    else if(clicks >= 46){
-        $(stars[0]).css('color', '#fbf0ea');
     }
 }
 
@@ -126,7 +123,7 @@ function isMatched(matchTwoCards) {
         matchTwoCards.pop(flipCard2);
         return false;
     } else {
-        if (flipCard1 == flipCard2){
+        if (flipCard1 === flipCard2){
             matched(matchTwoCards);
         } else{
             notMatched(matchTwoCards);
@@ -143,7 +140,7 @@ function matched(matchTwoCards) {
           cardsFlippedArr.push(matchTwoCards[i]);
         }
     }
-    if(cardsFlippedArr.length == 16){
+    if(cardsFlippedArr.length === 16){
         winGame();
     }
     movesCount();
