@@ -66,10 +66,10 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
           it('menu hidden/not hidden on click', function(){
-            $("menu-icon-link").click();
+            $(".menu-icon-link").click();
             expect($("body").hasClass("menu-hidden")).toBe(false);
 
-            $("menu-icon-link").click();
+            $(".menu-icon-link").click();
             expect($("body").hasClass("menu-hidden")).toBe(true);
           });
     });
@@ -100,13 +100,13 @@ $(function() {
         beforeEach( done => {
            loadFeed(0, function(){
              feedOne = $(".feed").html();
-             done();
+             loadFeed(1,function()){
+               feedTwo = $(".feed").html();
+               done();
+             });
            });
-           loadFeed(1,function()){
-             feedTwo = $(".feed").html();
-             done();
-           }
         });
+
         it('content change when new feed loads',function(){
           expect(feedOne === feedTwo).toBe(false);
         });
