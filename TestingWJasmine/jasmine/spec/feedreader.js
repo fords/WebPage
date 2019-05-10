@@ -85,7 +85,7 @@ $(function() {
          beforeEach(done => {
            loadFeed(0,done);
          });
-         it("At lest single entry element within feeed", function(){
+         it("At lest single entry element within feeed", function(done){
            expect($(".feed .entry").length).toBeGreaterThan(0);
            done();
          });
@@ -100,7 +100,7 @@ $(function() {
         beforeEach( done => {
            loadFeed(0, function(){
              feedOne = $(".feed").html();
-             loadFeed(1,function()){
+             loadFeed(1,function(){
                feedTwo = $(".feed").html();
                done();
              });
