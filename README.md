@@ -1,5 +1,5 @@
 ## Overview
-This repo has three folders. The Responsive folder is static web page. The Game folder can be run after downloading it and opening .html file.
+This repo has three folders. The Responsive folder has responsive web page rather than static page. The Game folder can be run after downloading the folder and opening .html file.
 
 TestingWJasmine folder can be run by following instructions as below </br>
 1. Download this repo.
